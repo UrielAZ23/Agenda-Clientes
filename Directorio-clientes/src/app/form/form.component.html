@@ -1,0 +1,57 @@
+<div class="d-flex flex-row justify-content-center m-5">
+    <form action="" class="p-5x m-3 border " #clienteform="ngForm">
+        <p class="text-center fs-3 mb-4 mt-4">Nuevo Cliente</p>
+        <div class="mb-4 d-flex flex-column m-4">
+          <div class="d-flex flex-row">
+
+            <label class=" text-center p-1" style="width:7rem ;" for="">Nombre</label>
+            <input class="form-control" type="text" name="nombre" [(ngModel)]="cliente.nombre" required #nombre="ngModel" aria-describedby="emailHelp">
+          </div>
+            <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                <div *ngIf="nombre.errors.required" class="">
+                  El nombre es requerido
+                </div>
+              </div>
+        </div>
+        <div class="mb-4 d-flex flex-column m-4">
+          <div class="d-flex flex-row">
+
+            <label class=" text-center p-1" style="width:7rem ;" for="">Apellidos</label>
+            <input class="form-control" type="text" name="apellido" [(ngModel)]="cliente.apellido" required #apellido="ngModel">
+          </div>
+            <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                <div *ngIf="apellido.errors.required" class="">
+                  El apellido de la compañia es requerido
+                </div>
+              </div>
+        </div>
+        <div class="mb-4 d-flex flex-column m-4">
+          <div class="d-flex flex-row">
+            <label class=" text-center p-1" style="width:7rem ;" for="">Usuario</label>
+            <input class="form-control" type="text" name="usuario"[(ngModel)]="cliente.usuario" #usuario="ngModel" required>
+          </div>
+            <div class="alert alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+                <div *ngIf="usuario.errors.required" class="">
+                  El usuario de la compañia es requerido
+                </div>
+              </div>
+        </div>
+        <div class="mb-4 d-flex flex-column m-4">
+          <div class="d-flex flex-row">
+            <label class=" text-center p-1" style="width:7rem ;" for="">Correo</label>
+            <input class="form-control" type="email" name="correo" [(ngModel)]="cliente.correo" required #correo="ngModel" >
+          </div>
+            <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+                <div *ngIf="correo.errors.required" class="">
+                  El correo de la compañia es requerido
+                </div>
+              </div>
+        </div>
+
+
+        <div class="text-center mb-4">
+            <button class="btn btn-primary btn-lg " [disabled]="!clienteform.form.valid"  (click)="create()" type="submit" >Enviar</button>
+
+        </div>
+    </form>
+</div>
